@@ -6,6 +6,7 @@ while(x):
     q=deque(i for i in range(inl[0]))
     # 처리
     count=1
+    print(impo,q,inl[1])
     while(True):
         if inl[1]==q[0] and max(impo)==impo[0]:
             print(count)
