@@ -1,7 +1,7 @@
 '''
 경쟁적 전염
 사용한 자료구조: BFS
-시간 복잡도: O(N)
+시간 복잡도: O(N^2)
 '''
 from collections import deque as q
 import sys
@@ -9,6 +9,7 @@ import sys
 n,k=map(int,sys.stdin.readline().split())
 matrix=[]
 temp=[]
+# 입력받고 정렬후 큐에 넣기
 for i in range(n):
     matrix.append([i for i in list(map(int,sys.stdin.readline().split()))])
     for j in range(n):
@@ -20,13 +21,16 @@ q=q(temp)
 dx=[-1,1,0,0]
 dy=[0,0,-1,1]
 
+#전염 시작
 while q:
     val,nx,ny,ns=q.popleft()
+    #찾는 위치에 값이 들어온 경우 혹은 시간이 다된 경우
     if nx==x-1 and ny==y-1 or ns==s:
         break
     for i in range(4):
         ix=nx+dx[i]
         iy=ny+dy[i]
+        # 범위 안에 있고 감엽시킬수있으면 큐에 저장
         if ix>=0 and ix<n and iy>=0 and iy<n:
             if matrix[ix][iy]==0:
                 q.append([val,ix,iy,ns+1])
