@@ -35,8 +35,8 @@ dxs = [-1, 0, 1, 0]
 dys = [0, 1, 0, -1]
 
 while True:
-    total_visited = set() # BFS 탐색에 한번이라도 들어간 경우, 재 탐색을 할 필요가 없으므로,
-                          # 이 집합에 담아둔다.
+    print(board)
+    total_visited = set() 
     is_move = False       # 한 번이라도 BFS를 타게되면 True로 바뀐다.
     unions = []           # (바뀔 인구수, 연합의 좌표들)을 담는다.
 
