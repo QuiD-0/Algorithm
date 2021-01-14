@@ -1,3 +1,29 @@
+import sys,itertools
+from collections import deque
+
+n=int(input())
+mat=[]
+jo=deque()
+result=sys.maxsize
+for i in range(n):
+    mat.append([i for i in list(map(int,input().split()))])
+mem=[i for i in range(n)]
+for i in list(itertools.combinations(mem,n//2)):
+    jo.append(i)
+while jo:
+    ans=0
+    start,link=jo.popleft(),jo.pop()
+    for i in start:
+        for j in start:
+            ans+=mat[i][j]
+    for i in link:
+        for j in link:
+            ans-=mat[i][j]
+    result=min(result,abs(ans))
+print(result)
+
+
+'''
 import sys
 N = int(input())
 stat = [list(map(int, input().split())) for _ in range(N)]
@@ -36,3 +62,4 @@ def startAndLink(count, index):
 
 startAndLink(0, 1)
 print(minValue)
+'''
