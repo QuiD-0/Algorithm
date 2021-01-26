@@ -16,6 +16,7 @@ def dijkstra(start):
             if n_w < dp[n_n]:
                 dp[n_n] = n_w
                 heappush(heap, [n_w, n_n])
+                
 for i in range(e):
     u, v, w = map(int, sys.stdin.readline().split())
     s[u].append([v, w])
