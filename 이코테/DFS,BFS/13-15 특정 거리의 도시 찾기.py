@@ -29,7 +29,7 @@ while q:
         if next not in visit:
             visit.append(next)
             dis[next]=dis[node]+1
-            q.extend(graph[node])
+            q.append(next)
 #찾는 거리인 노드 출력
 for i in dis.keys():
     if dis[i]==k:
