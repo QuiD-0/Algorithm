@@ -18,7 +18,11 @@ public class MakeProblem {
         for (int i = 0; i < n; i++) {
             String[] line = br.readLine().split("\\s");
             for (int j = 0; j < n; j++) {
-                map[i][j] = Integer.parseInt(line[j]);
+                int temp = Integer.parseInt(line[j]);
+                if (temp % 5 == 0) {
+                    map[i][j] = temp * 2;
+                }
+                map[i][j] = temp;
             }
         }
         int targetCol = Integer.parseInt(br.readLine());
@@ -27,8 +31,8 @@ public class MakeProblem {
         num = n / 2; // 회전할 레이어 수
         ArrayList<Integer> res = new ArrayList<>();
         for (int i = 0; i < 21; i++) {
-
             rotatematrix(n, n, map);
+            if (i == 0) continue;
             int max = 0;
             for (int j = 0; j < n; j++) {
                 max = Math.max(max, map[targetCol - 1][j]);
