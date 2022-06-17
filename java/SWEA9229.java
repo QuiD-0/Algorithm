@@ -1,3 +1,4 @@
+import java.util.Arrays;
 import java.util.Scanner;
 
 public class SWEA9229 {
@@ -26,5 +27,21 @@ public class SWEA9229 {
             else
                 System.out.println(max);
         }
+        //combi(0,0);
     }
+    static int[] arr = {1,2,3,4,5};
+    static int[] sel = new int[2];
+
+    private static void combi(int cnt, int s) {
+        if(cnt==2){
+            System.out.println(Arrays.toString(sel));
+            return;
+        }
+        for(int i=s;i<5;i++){
+            sel[cnt]=arr[i];
+            combi(cnt+1,i+1);
+        }
+    }
+
+
 }

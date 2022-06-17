@@ -32,7 +32,6 @@ public class SWEA1953 {
             q.add(new Pos(x, y, 1));
             visit[x][y] = true;
             while (!q.isEmpty()) {
-//                System.out.println("q = " + q)
                 Pos cur = q.poll();
                 int tunnel = map[cur.x][cur.y];
                 int[][] next = next(tunnel);

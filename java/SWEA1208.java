@@ -5,17 +5,18 @@ public class SWEA1208 {
         Scanner sc = new Scanner(System.in);
         for(int t=1;t<11;t++){
             int count=sc.nextInt();
-            ArrayList arr = new ArrayList();
+            int[] arr = new int[100];
             for(int i=0;i<100;i++){
-                arr.add(sc.nextInt());
+                arr[i]=sc.nextInt();
             }
-            Collections.sort(arr);
+            Arrays.sort(arr);
             while(count--!=0){
-                arr.set(99, ((int)arr.get(99) - 1));
-                arr.set(0, ((int)arr.get(0) + 1));
-                Collections.sort(arr);
+                if(arr[99]-arr[0]==1)break;
+                arr[99]=arr[99]-1;
+                arr[0]=arr[0]+1;
+                Arrays.sort(arr);
             }
-            System.out.printf("#%d %d\n",t,(int)arr.get(99)-(int)arr.get(0));
+            System.out.printf("#%d %d\n",t,arr[99]-arr[0]);
         }
     }
 }

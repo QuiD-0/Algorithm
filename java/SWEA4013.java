@@ -4,7 +4,7 @@ import java.io.InputStreamReader;
 import java.util.StringTokenizer;
 
 public class SWEA4013 {
-    
+
     public static void main(String[] args) throws IOException {
         BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
         int T = Integer.parseInt(br.readLine());
@@ -28,7 +28,6 @@ public class SWEA4013 {
                 rotation[num] = dir;
 
 
-                //오른쪽 자석들을 검사
                 for (int j = num + 1; j < 4; j++) {
                     if (info[j - 1][2] == info[j][6]) //자성이 같으면 회전하지 않는다.
                         break;
@@ -37,7 +36,6 @@ public class SWEA4013 {
                 }
 
 
-                //왼쪽 자석들을 검사
                 for (int j = num - 1; j >= 0; j--) {
                     if (info[j][2] == info[j + 1][6]) //자성이 같으면 회전하지 않는다.
                         break;

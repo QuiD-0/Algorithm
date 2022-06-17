@@ -8,22 +8,25 @@ public class BOJ1074 {
         n = sc.nextInt();
         r = sc.nextInt();
         c = sc.nextInt();
-        find(0, 0, (int)Math.pow(2,n));
+        System.out.println(solve(0, 0, (int)Math.pow(2,n)));
     }
+    public static int solve(int nr, int nc, int size) {
 
-    private static void find(int x, int y, int n) {
-        if (n == 1) {
-            if(x==r&&y==c){
-                System.out.println(count);
-                return;
-            }else{
-                count++;
-            }
-        } else {
-            find(x, y, n / 2);
-            find(x, y + (n / 2), n / 2);
-            find(x + (n / 2), y, n / 2);
-            find(x + (n / 2), y + (n / 2), n / 2);
+        if (size == 1) {
+            return 0;
         }
+
+        if (r < nr + size / 2 && c < nc + size / 2)
+            return solve(nr, nc, size / 2);
+
+        else if (r < nr + size / 2 && c < nc + size)
+            return solve(nr, nc + size / 2, size / 2) + (int) Math.pow(size / 2, 2);
+
+        else if (r < nr + size && c < nc + size / 2)
+            return solve(nr + size / 2, nc, size / 2) + (int) Math.pow(size / 2, 2) * 2;
+
+        else
+            return solve(nr + size / 2, nc + size / 2, size / 2) + (int) Math.pow(size / 2, 2) * 3;
+
     }
 }

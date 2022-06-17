@@ -7,6 +7,7 @@ public class JO1082 {
     static int R, C;
     static String[][] matrix;
     static int[] link;
+    static boolean[][] visit;
 
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
@@ -14,6 +15,7 @@ public class JO1082 {
         C = sc.nextInt();
         sc.nextLine();
         matrix = new String[R][C];
+        visit = new boolean[R][C];
         for (int i = 0; i < R; i++) {
             String[] a = sc.nextLine().split("");
             for (int j = 0; j < C; j++) {
@@ -25,7 +27,7 @@ public class JO1082 {
         }
 //        System.out.println("Arrays.deepToString(matrix) = " + Arrays.deepToString(matrix));
         Deque q = new LinkedList();
-        q.add(new Info(link, 0, new boolean[R][C]));
+        q.add(new Info(link, 0));
         int time = -1;
         int ans = 0;
         while (!q.isEmpty()) {
@@ -34,7 +36,7 @@ public class JO1082 {
             int curTime = cur.time;
             int curX = cur.pos[0];
             int curY = cur.pos[1];
-            boolean[][] visit = cur.visit;
+
             visit[curX][curY] = true;
             if (curTime > time) {
                 fire();
@@ -49,7 +51,7 @@ public class JO1082 {
                 int nx = curX + dxdy[0];
                 int ny = curY + dxdy[1];
                 if ((nx >= 0 && nx < R && ny >= 0 && ny < C && !visit[nx][ny]) && (matrix[nx][ny].equals(".") || matrix[nx][ny].equals("D"))) {
-                    q.add(new Info(new int[]{nx, ny}, curTime + 1, visit));
+                    q.add(new Info(new int[]{nx, ny}, curTime + 1));
                 }
             }
         }
@@ -79,12 +81,10 @@ public class JO1082 {
     static class Info {
         int[] pos;
         int time;
-        boolean visit[][];
 
-        public Info(int[] pos, int time, boolean[][] visit) {
+        public Info(int[] pos, int time) {
             this.pos = pos;
             this.time = time;
-            this.visit = visit;
         }
     }
 }

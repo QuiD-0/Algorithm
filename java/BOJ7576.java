@@ -41,8 +41,7 @@ public class BOJ7576 {
         }
         while (!q.isEmpty()) {
             Tomato cur = (Tomato) q.poll();
-            if (mat[cur.x][cur.y] != 0) mat[cur.x][cur.y] = Math.min(cur.day + 1, mat[cur.x][cur.y]);
-            else mat[cur.x][cur.y] = cur.day;
+            mat[cur.x][cur.y] = cur.day;
             for (int[] d : new int[][]{{1, 0}, {-1, 0}, {0, 1}, {0, -1}}) {
                 int nx = cur.x + d[0];
                 int ny = cur.y + d[1];

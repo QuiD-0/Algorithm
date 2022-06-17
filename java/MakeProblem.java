@@ -19,10 +19,11 @@ public class MakeProblem {
             String[] line = br.readLine().split("\\s");
             for (int j = 0; j < n; j++) {
                 int temp = Integer.parseInt(line[j]);
-                if (temp % 5 == 0) {
-                    map[i][j] = temp * 2;
+                if (temp % 7 == 0) {
+                    map[i][j] = temp + 10;
+                } else {
+                    map[i][j] = temp;
                 }
-                map[i][j] = temp;
             }
         }
         int targetCol = Integer.parseInt(br.readLine());
@@ -32,7 +33,6 @@ public class MakeProblem {
         ArrayList<Integer> res = new ArrayList<>();
         for (int i = 0; i < 21; i++) {
             rotatematrix(n, n, map);
-            if (i == 0) continue;
             int max = 0;
             for (int j = 0; j < n; j++) {
                 max = Math.max(max, map[targetCol - 1][j]);
