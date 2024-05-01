@@ -3,5 +3,4 @@ fun main() {
 }
 
 class Solution {
-
 }
