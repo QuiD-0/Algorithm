@@ -1,6 +1,8 @@
 fun main() {
-    println(Solution())
+    Solution()
+        .also(::println)
 }
 
 class Solution {
+
 }
