@@ -4,20 +4,20 @@ fun main() {
 
 class Solution {
     fun equalPairs(grid: Array<IntArray>): Int {
-        var pairs = 0
-        grid.forEach{ row ->
-            for (i in row.indices) {
-                for(j in row.indices) {
-                    if (grid[j][i] == row[j]) {
-                        if (j == row.size - 1) {
-                            pairs ++
-                        }
-                    } else {
-                        break
-                    }
+        val rows = Array(grid.size) { IntArray(grid.size) }
+        for(i in grid.indices) {
+            for (j in grid.indices) {
+                rows[j][i] = grid[i][j]
+            }
+        }
+        var count = 0
+        for (i in grid.indices) {
+            for (j in rows.indices) {
+                if (grid[i].contentEquals(rows[j])) {
+                    count++
                 }
             }
         }
-        return pairs
+        return count
     }
 }
