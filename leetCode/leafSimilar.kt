@@ -20,7 +20,8 @@ class Solution {
     }
 
     private fun find(root: TreeNode?, list: MutableList<Int>) {
-        if (root?.left == null && root?.right == null) {
+        if (root == null) {}
+        else if (root?.left == null && root?.right == null) {
             list.add(root!!.`val`)
         } else {
             find(root.left, list)
