@@ -1,8 +1,3 @@
-fun main() {
-    Solution()
-        .also(::println)
-}
-
 class Solution {
     fun countBits(n: Int) = IntArray(n + 1).apply {
         for (i in 0..n)
