@@ -3,6 +3,6 @@ fun main() {
         .also(::println)
 }
 
-
 class Solution {
+
 }
