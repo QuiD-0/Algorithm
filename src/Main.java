@@ -3,6 +3,7 @@ public class Main {
         Solution solution = new Solution();
     }
 
-    class Solution {
+    static class Solution {
+
     }
 }
