@@ -1,12 +1,3 @@
-fun main() {
-    Solution().solution(
-        intArrayOf(0,3,0,0,5,0,5),
-        intArrayOf(4,2,6,1,0)
-    ).let {
-        println(it)
-    }
-}
-
 internal class Solution {
     fun solution(T: IntArray, A: IntArray): Int {
         val n = T.size
